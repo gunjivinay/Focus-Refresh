@@ -21,6 +21,7 @@ export default function ProfilePage() {
   const [editingName, setEditingName] = useState(false);
   const [newName, setNewName] = useState('');
   const [badgeProgress, setBadgeProgress] = useState(getBadgeProgress(userId || undefined));
+  const [showDataExport, setShowDataExport] = useState(false);
 
   // Show loading state while checking authentication
   useEffect(() => {
