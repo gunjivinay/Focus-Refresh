@@ -59,7 +59,8 @@ const GAME_DIFFICULTY: Record<NonNullable<GameType>, Difficulty> = {
   'chess': 'hard',
 };
 
-export function getGameDifficulty(gameId: GameType): Difficulty {
+export function getGameDifficulty(gameId: GameType | null | undefined): Difficulty {
+  if (!gameId) return 'medium';
   return GAME_DIFFICULTY[gameId] || 'medium';
 }
 

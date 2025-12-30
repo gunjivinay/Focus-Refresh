@@ -582,7 +582,9 @@ export function getAllGameStatistics(userId?: string): Record<NonNullable<GameTy
 
   const result: Record<string, GameStatistics> = {};
   allGameIds.forEach(gameId => {
-    result[gameId] = getGameStatistics(gameId, userId);
+    if (gameId) {
+      result[gameId] = getGameStatistics(gameId, userId);
+    }
   });
 
   return result as Record<NonNullable<GameType>, GameStatistics>;

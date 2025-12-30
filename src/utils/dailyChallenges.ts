@@ -56,18 +56,18 @@ export function getTodayChallenge(userId?: string): DailyChallenge | null {
       title: 'Quick Win',
       description: `Complete a game of ${randomGame}`,
       targetCompletion: true,
-      reward: { type: 'bonus', bonusPoints: 50 },
+      reward: { type: 'bonus' as const, bonusPoints: 50 },
     },
     {
       title: 'Score Master',
       description: `Score at least 100 points in ${randomGame}`,
       targetScore: 100,
-      reward: { type: 'bonus', bonusPoints: 75 },
+      reward: { type: 'bonus' as const, bonusPoints: 75 },
     },
     {
       title: 'Daily Player',
       description: `Play any game today`,
-      reward: { type: 'bonus', bonusPoints: 25 },
+      reward: { type: 'bonus' as const, bonusPoints: 25 },
     },
   ];
 
@@ -81,7 +81,7 @@ export function getTodayChallenge(userId?: string): DailyChallenge | null {
     gameId: randomGame,
     targetScore: challengeType.targetScore,
     targetCompletion: challengeType.targetCompletion,
-    reward: challengeType.reward,
+    reward: challengeType.reward as { type: 'badge' | 'bonus'; badgeId?: string; bonusPoints?: number },
     completed: false,
   };
 
@@ -153,7 +153,9 @@ export function checkChallengeCompletion(
     completeChallenge(challenge.id, userId);
     return {
       completed: true,
-      reward: challenge.reward.type === 'bonus' ? challenge.reward : undefined,
+      reward: challenge.reward.type === 'bonus' 
+        ? { type: 'bonus' as const, bonusPoints: challenge.reward.bonusPoints || 0 }
+        : undefined,
     };
   }
 
