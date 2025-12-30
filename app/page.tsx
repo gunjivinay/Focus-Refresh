@@ -166,36 +166,23 @@ export default function Home() {
           )}
 
           {/* Profile & Feedback Links */}
-          <div className="flex justify-center gap-4 sm:gap-6 flex-wrap">
+          <div className="flex justify-center gap-6 flex-wrap">
             {isAuthenticated ? (
               <>
                 <a
                   href="/profile"
-                  className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl hover:from-purple-600 hover:to-pink-600 transition-all font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 text-sm sm:text-base"
+                  className="inline-block px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-xl hover:from-purple-600 hover:to-pink-600 transition-all font-semibold shadow-lg hover:shadow-xl transform hover:scale-105"
                 >
                   🏆 View Profile & Badges
                 </a>
                 <a
-                  href="/roadmap"
-                  className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-xl hover:from-green-600 hover:to-teal-600 transition-all font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 text-sm sm:text-base"
-                >
-                  🗺️ View Roadmap
-                </a>
-                <a
                   href="/feedback"
-                  className="inline-block px-4 sm:px-6 py-2 sm:py-3 text-blue-600 hover:text-blue-700 font-semibold underline decoration-2 underline-offset-4 transition-colors text-sm sm:text-base"
+                  className="inline-block px-6 py-3 text-blue-600 hover:text-blue-700 font-semibold underline decoration-2 underline-offset-4 transition-colors"
                 >
-                  💬 Share Feedback
+                  💬 Share Your Experience
                 </a>
               </>
-            ) : (
-              <a
-                href="/roadmap"
-                className="inline-block px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-xl hover:from-green-600 hover:to-teal-600 transition-all font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 text-sm sm:text-base"
-              >
-                🗺️ See What's Coming Next
-              </a>
-            )}
+            ) : null}
           </div>
 
           {/* Focus Quote */}
