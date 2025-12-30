@@ -37,7 +37,7 @@ export default function Header({ showBackButton = false, backHref = '/' }: Heade
   }, [userId, user]);
 
   const handleToggleSound = () => {
-    const newState = toggleSound(userId);
+    const newState = toggleSound(userId || undefined);
     setSoundEnabledState(newState);
     setSoundEnabled(newState);
   };
